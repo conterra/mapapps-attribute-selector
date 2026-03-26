@@ -34,13 +34,36 @@
             "theme-autumn",
             "toc",
             "toolset",
-            "dn_imprintprivacy"
+            "dn_imprintprivacy",
+            "dn_attributeselector"
         ],
         "i18n": [
             "bundle"
         ]
     },
     "bundles": {
+        "dn_attributeselector": {
+            "Config": {
+                "layerIds": [
+                    "koeln2"
+                ],
+                "targetAttribute": "STADTBEZIR",
+                "attributeValueRelation": "=",
+                "attributeValues": [
+                            "Kalk",
+                            "Lindenthal",
+                            "Innenstadt",
+                            "Rodenkirchen",
+                            "Mülheim",
+                            "Nippes",
+                            "Porz"],
+                "mode": "button",
+                "applyToGroupContents": true,
+                "applyDefinitionExpressionOnWidgetOpen": true,
+                "removeDefinitionExpressionOnWidgetClose": true
+
+            }
+        },
         "agssearch": {
             "AutoStoreRegistration": {
                 "componentEnabled": true
@@ -96,6 +119,18 @@
                 ],
                 "map": {
                     "layers": [
+                        {
+                            "id": "stoerung",
+                            "title": "Störungen",
+                            "type": "AGS_FEATURE",
+                            "description": "Störungen",
+                            "url": "https://services.conterra.de/server/rest/services/mapapps/stoerung/FeatureServer/0",
+                            "popupEnabled": true,
+                            "useIn": [
+                                "querybuilder",
+                                "selection"
+                            ]
+                        },
                         {
                             "id": "koeln1",
                             "title": "${map.koeln1.title}",
@@ -319,7 +354,7 @@
                             "id": "koeln3",
                             "title": "${map.koeln3.title}",
                             "type": "GROUP",
-                            "visible": true,
+                            "visible": false,
                             "layers": [
                                 {
                                     "title": "${map.koeln3.sights.title}",
@@ -419,12 +454,20 @@
                 "showLayerLegend": true
             }
         },
+        "toolrules": {
+            "ToolActiveStateManager": {
+                "activateOnStartToolIds": [
+                    "attributeSelectorWidgetToggleTool"
+                ]
+            }
+        },
         "toolset": {
             "ToolsetManager": {
                 "toolsets": [
                     {
                         "id": "mapview_tools",
                         "tools": [
+                            "attributeSelectorWidgetToggleTool",
                             "locateMeTool",
                             "zoomInTool",
                             "zoomOutTool",

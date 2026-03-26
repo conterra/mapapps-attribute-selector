@@ -1,0 +1,124 @@
+{
+    "name": "dn_attributeselector",
+    "version": "1.0.0-SNAPSHOT",
+    "title": "${bundleName}",
+    "description": "${bundleDescription}",
+    "main": "",
+    "vendor": "con terra GmbH",
+    "productName": "devnet-mapapps-attribute-selector",
+    "dependencies": {
+        "@arcgis/core": "^4.33.0",
+        "ct": "^4.20.0",
+        "apprt-vue": "^4.20.0",
+        "apprt-core": "^4.20.0",
+        "apprt-binding": "^4.20.0"
+    },
+    "i18n": [
+        "bundle"
+    ],
+   "layout-widgets": [
+        {
+            "widgetRole": "attributeSelectorWidget",
+            "window": {
+                "title": "${ui.windowTitle}",
+                "closable": true,
+                "minimizeOnClose": true,
+                "dockTool": "attributeSelectorWidgetToggleTool",
+                "marginBox": {
+                    "r": 250,
+                    "t": 50
+                },
+                "windowClass": "noPadding"
+            }
+        }
+    ],
+    "cssThemesExtension": [
+        {
+            "name": "*",
+            "files": [
+                "./css/styles.css"
+            ]
+        }
+    ],
+    "components": [
+        {
+            "name": "Config",
+            "impl": "./AttributeSelectorWidgetModel",
+            "provides": [
+                "dn_attributeSelector.AttributeSelectorWidgetModel"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "layerIds": [],
+                "applyToGroupContents": false,
+                "targetAttribute": "HAUSNR",
+                "attributeValueRelation": ">=",
+                "applyDefinitionExpressionOnWidgetOpen": true,
+                "removeDefinitionExpressionOnWidgetClose": true,
+                "attributeValues": [],
+                "mode": "checkbox"
+            },
+            "references": []
+        },
+        {
+            "name": "AttributeSelectorWidgetFactory",
+            "provides": [
+                "dijit.Widget"
+            ],
+            "instanceFactory": true,
+            "properties": {
+                "widgetRole": "attributeSelectorWidget"
+            },
+            "references": [
+                {
+                    "name": "_model",
+                    "providing": "dn_attributeSelector.AttributeSelectorWidgetModel"
+                },
+                {
+                    "name": "_controller",
+                    "providing": "dn_attributeSelector.AttributeSelectorController"
+                },
+                {
+                    "name": "_attributeSelectorWidgetToggleTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=attributeSelectorWidgetToggleTool)"
+                }
+            ]
+        },
+        {
+            "name": "AttributeSelectorController",
+            "provides": [
+                "dn_attributeSelector.AttributeSelectorController"
+            ],
+            "references": [
+                {
+                    "name": "_model",
+                    "providing": "dn_attributeSelector.AttributeSelectorWidgetModel"
+                },
+                {
+                    "name": "_mapWidgetModel",
+                    "providing": "map-widget.MapWidgetModel"
+                }
+            ]
+        },
+        {
+            "name": "AttributeSelectorWidgetToggleTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "attributeSelectorWidgetToggleTool",
+                "title": "${ui.tool.title}",
+                "tooltip": "${ui.tool.tooltip}",
+                "toolRole": "toolset",
+                "iconClass": "icon-signal-4",
+                "togglable": true,
+                "rules": {
+                    "noGroup": true
+                }
+            }
+        }
+    ]
+}

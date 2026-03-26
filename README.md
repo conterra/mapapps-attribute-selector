@@ -1,20 +1,19 @@
-# mapapps-devnet-blueprint
+[![devnet-bundle-snapshot](https://github.com/conterra/mapapps-bookmarks/actions/workflows/devnet-bundle-snapshot.yml/badge.svg)](https://github.com/conterra/mapapps-bookmarks/actions/workflows/devnet-bundle-snapshot.yml)
+![Static Badge](https://img.shields.io/badge/requires_map.apps-4.13.0-e5e5e5?labelColor=%233E464F&logoColor=%23e5e5e5)
+![Static Badge](https://img.shields.io/badge/tested_for_map.apps-4.20.3-%20?labelColor=%233E464F&color=%232FC050)
+# Attribute Selector
 
-**This project is not intended for use by non-con terra users.** It is designed for the creation of bundles and their releases in GitHub and can access con terra internal infrastructures for this purpose. To develop your own map.apps bundles, use the [mapapps-4-developers project](https://github.com/conterra/mapapps-4-developers).
+The Attribute Selector Bundle lets you select features by attributes.
 
-This project is a starting point for programming custom map.apps bundles and themes. It contains examples for common tasks such as building widgets with Vue.js or creating your own custom themes.
-You may use this project as a blueprint for starting your own map.apps project.
+![Screenshot App](https://github.com/conterra/mapapps-attribute-selector/blob/main/screenshot.JPG)
 
-Since both Typescript and Javascript can be used to implement bundles, this project contains two bundles with the same functionality, `sample_camera` implemented in Typescript and `sample_camera_js` implemented in Javascript.
-Initially only the `sample_camera` bundle is included in the `Demo` sample app.
+## Sample App
+https://demos.conterra.de/mapapps/resources/apps/public_demo_attribute-selector/index.html
 
-For detailed documentation on how to use map.apps for Developers to extend map.apps, see the [map.apps Developer's Guide](https://docs.conterra.de/en/mapapps/latest/developersguide/getting-started/).
+## Installation Guide
+Simply add the bundle "dn_attributeselector" to your app.
 
-## Software Requirements
-
-- Java >= 17
-- Maven >= 3.9.0
-- pnpm >= 10.20
+[dn_attributeselector Documentation](https://github.com/conterra/mapapps-attribute-selector/tree/main/src/main/js/bundles/dn_attributeselector)
 
 ## Quick start
 
@@ -32,7 +31,3 @@ $ mvn compile -Denv=dev -Pinclude-mapapps-deps
 # run unit tests
 $ mvn test -P run-js-tests,include-mapapps-deps
 ```
-
-To execute the tests in your browser, open <http://localhost:9090/js/tests/runTests.html> (may be on a different port depending on your configuration).
-
-For more details refer to the [Developer's Guide](https://docs.conterra.de/en/mapapps/latest/developersguide/getting-started/).
