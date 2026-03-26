@@ -24,7 +24,10 @@ test('Create Screenshot for GitHub Page', async ({ page }) => {
     await page.goto('http://localhost:9090/');
     const canvas = new MapCanvas(page);
     await canvas.loaded();
-    await canvas.clickOnMap({ x: 400, y: 400 });
+
+    const button = page.locator('button[value="Innenstadt"]');
+    await button.click();
+    await page.waitForTimeout(1000);
 
     await expectToMatchScreenshot(page, "screenshot.png", {
         timeout: 10000

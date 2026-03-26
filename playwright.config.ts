@@ -69,9 +69,10 @@ const config: PlaywrightTestConfig = {
 
     projects: [
         {
-            name: "Desktop Firefox",
+            name: "Desktop Chrome",
             use: {
-                ...devices["Desktop Firefox"]
+                ...devices["Desktop Chrome"],
+                launchOptions: chromiumLaunchOptions
             }
         },
         {
