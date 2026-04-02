@@ -19,7 +19,12 @@ The `dn_attributeselector` bundle provides an interactive slider widget for filt
             "attributeValueRelation": ">=",
             "applyDefinitionExpressionOnWidgetOpen": true,
             "removeDefinitionExpressionOnWidgetClose": true,
-            "attributeValues": [],
+            "attributeValues": [
+                    {
+                     "label" : "Label 1",
+                     "value" : "1"
+                     },
+                    {"value" : "2",}],
             "mode": ""
 
         }
@@ -35,7 +40,7 @@ The `dn_attributeselector` bundle provides an interactive slider widget for filt
 | attributeValueRelation                    | string   | "=", "<", ">", "<=", ">=", "!=" | ">="     | The comparison operator for the filter                       |
 | applyDefinitionExpressionOnWidgetOpen     | boolean  | true, false                     | true     | Whether to apply the filter when the widget is opened        |
 | removeDefinitionExpressionOnWidgetClose   | boolean  | true, false                     | true     | Whether to remove the filter when the widget is closed       |
-| attributeValues                           | string[] | Any attribute values            | []       | List of attribute values to appear in selector                 |
+| attributeValues                           | object[] | Any attribute values            | []       | List of attribute values and optional labels to appear in selector                 |
 | mode           | string   | "checkbox", "button", "radio"                              | "checkbox"     | Selector mode                                  |
 
 ### Additional Considerations

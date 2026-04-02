@@ -32,9 +32,9 @@
                     :key="index"
                 >
                     <v-radio
-                        :label="field"
-                        :aria-label="field"
-                        :value="field"
+                        :label="(field.label ? field.label : field.value)"
+                        :aria-label="(field.label ? field.label : field.value)"
+                        :value="field.value"
                     />
                 </v-flex>
             </v-radio-group>
@@ -45,8 +45,8 @@
                     v-for="(field, index) in attributeValues"
                     :key="index"
                 >
-                    <v-btn :value="field">
-                        {{ field }}
+                    <v-btn :value="field.value">
+                        {{ (field.label ? field.label : field.value) }}
                     </v-btn>
                 </v-flex>
             </v-btn-toggle>
@@ -61,8 +61,8 @@
             >
                 <v-checkbox
                     v-model="checkboxes"
-                    :value="field"
-                    :label="field"
+                    :value="field.value"
+                    :label="(field.label ? field.label : field.value)"
                 />
             </v-flex>
         </div>
