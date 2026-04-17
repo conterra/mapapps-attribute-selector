@@ -17,11 +17,6 @@
     height: 100%;
     overflow: hidden;
 
-    .attributeSelectorWidget--slider-layout {
-        display: flex;
-        flex-direction: row;
-        margin-top: 25px;
-    }
     .attributeSelectorWidget--checkbox-container {
         height: fit-content;
     }
